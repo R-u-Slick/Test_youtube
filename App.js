@@ -2,9 +2,15 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import Main from './components/Main';
+import PageNav from './pages/PageNav';
+import PagesRouter from './pages/PagesRouter'
 
 ReactDOM.render( 
-  <Main />
+  <BrowserRouter>
+    <div>
+      <PagesRouter/>
+    </div>
+  </BrowserRouter>
 , document.getElementById('container') );
