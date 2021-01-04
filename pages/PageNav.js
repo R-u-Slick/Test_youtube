@@ -2,17 +2,22 @@
 import './PageNav.css';
 import { NavLink } from 'react-router-dom';
 
+import './PageNav.css';
 
 class PageNav extends React.Component {
 
   render() {
 
     return (
-      <div className="Page-nav">
-        <div className="header">Search a video</div>
+      <div className="PageNav">
+        <div className="header">Video search</div>
         <div className="links">
-          <NavLink to="/videoUrl" className="PageLink" activeClassName="ActivePageLink">Search via url</NavLink>
-          <NavLink to="/videoSearch" className="PageLink" activeClassName="ActivePageLink">Search via keywords</NavLink>
+          <div className="button link-url">
+            <NavLink to="/videoUrl" className="page-link" activeClassName="page-link-active">Search via url</NavLink>
+          </div>
+          <div className="button link-search">
+            <NavLink to="/videoSearch" className="page-link" activeClassName="page-link-active">Search via keywords</NavLink>
+          </div>
         </div>
       </div>
     )

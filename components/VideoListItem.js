@@ -13,10 +13,15 @@ class VideoListItem extends React.Component {
     cbSelectedVideo: PropTypes.func.isRequired,
   };
 
+  videoClicked = (EO) => {
+    EO.stopPropagation();
+    this.props.cbSelectedVideo(this.props.video);
+  }
+
 
   render() {
     return (
-    <div onClick={ () => cbSelectedVideo(this.state.video)} className='VideoListItem'>
+    <div onClick={this.videoClicked} className='VideoListItem'>
       <img className='image' src={this.props.video.snippet.thumbnails.medium.url} alt={this.props.video.snippet.description}/>
       <div className='content'>
           <div className='header '>{this.props.video.snippet.title}</div>

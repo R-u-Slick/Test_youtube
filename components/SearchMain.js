@@ -26,6 +26,7 @@ class SearchMain extends React.Component {
   }
 
   videoSelected = (video) => {
+    console.log('video'+video)
     this.setState({selectedVideo: video})
   }
 
@@ -35,6 +36,9 @@ class SearchMain extends React.Component {
 
     return (
       <div className="SearchMain">
+        <div className="Menu">
+          
+        </div>
         <div className="text">Please enter keywords to search</div>
         <Input cbInputSubmit={this.inputSubmit}/>
         {
