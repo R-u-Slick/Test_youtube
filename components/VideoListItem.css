@@ -1,1 +1,5 @@
-﻿
+﻿.VideoListItem {
+    padding-bottom: 10px;
+    width: 300px;
+    cursor: pointer;
+}

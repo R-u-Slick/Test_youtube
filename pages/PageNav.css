@@ -15,20 +15,3 @@
     justify-content: space-around;
 }
 
-.PageNav .page-link {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-.PageNav .button {
-    padding: 10px 10px;
-    max-width: 200px;
-    background-color: red;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.PageNav .button:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}

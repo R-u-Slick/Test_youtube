@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import './PageNav.css';
-import { NavLink } from 'react-router-dom';
+import Button from '../components/Button'
 
 import './PageNav.css';
 
@@ -13,10 +13,10 @@ class PageNav extends React.Component {
         <div className="header">Video search</div>
         <div className="links">
           <div className="button link-url">
-            <NavLink to="/videoUrl" className="page-link" activeClassName="page-link-active">Search via url</NavLink>
+            <Button route="/videoUrl" name="Enter url"/>
           </div>
           <div className="button link-search">
-            <NavLink to="/videoSearch" className="page-link" activeClassName="page-link-active">Search via keywords</NavLink>
+            <Button route="/videoSearch" name="Search via keywords"/>
           </div>
         </div>
       </div>
