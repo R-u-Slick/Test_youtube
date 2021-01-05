@@ -1,25 +1,29 @@
-﻿.SearchMain {
+﻿.UrlMain {
     max-width: 1100px;
     margin: 0 auto;
 }
 
-.SearchMain .menu {
+.UrlMain .menu {
     padding: 10px 0;
 }
 
-.SearchMain .searchBar {
+.UrlMain .searchBar {
     padding-bottom: 10px;
 }
 
-.SearchMain .search-results {
+.UrlMain .search-results {
     display: flex;
 }
 
-.SearchMain .video-player {
+.UrlMain .video-player {
     width: 700px;
 }
 
-.SearchMain .title {
+.UrlMain .title {
     font-weight: bold;
     font-size: 20px;
+}
+
+.UrlMain .error {
+    color: red;
 }

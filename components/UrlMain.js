@@ -8,20 +8,28 @@ import './UrlMain.css';
 class UrlMain extends React.Component {
 
   state = {
+    invalidInput: false,
     selectedVideoId: null
   }
 
   inputSubmit = (termFromSearchBar) => {
     const url = termFromSearchBar;
-    let parser = new URL(url);
-    console.log(parser.search);
-    this.setState({selectedVideoId: termFromSearchBar})
+    var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    console.log(match)
+    if (match && match[2].length == 11) {
+      this.setState({invalidInput: false})
+      this.setState({selectedVideoId: match[2]});
+    } 
+    else {
+      this.setState({invalidInput: true});
+    }
   }
 
   render() {
 
     return (
-      <div className="SearchMain">
+      <div className="UrlMain">
         <div className="menu">
           <Button route="/" name="Go back to menu"/>
         </div>
@@ -30,10 +38,14 @@ class UrlMain extends React.Component {
             <div className="title">Please enter url:</div>
             <Input cbInputSubmit={this.inputSubmit}/>
           </div>
+          {
+            (this.state.invalidInput)&&
+            <div className="error">Please enter valid url</div>
+          }
           <div className="search-results">
             <div className="video-player">
               {
-                (Boolean(this.state.selectedVideoId))&&
+                (Boolean(this.state.selectedVideoId)&&!this.state.invalidInput)&&
                 <VideoPlayer videoId={this.state.selectedVideoId}/>
               }  
             </div>
