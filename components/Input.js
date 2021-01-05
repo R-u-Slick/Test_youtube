@@ -6,7 +6,7 @@ import './Input.css';
 class Input extends React.Component {
 
   static propTypes = {
-    cbInputSubmit: PropTypes.func.isRequired,
+    cbInputSubmit: PropTypes.func.isRequired, //callback that pass info from user input
   };
 
   inputRef = null;

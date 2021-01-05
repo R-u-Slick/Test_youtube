@@ -1,16 +1,18 @@
 ﻿.Button {
-    padding: 10px 10px;
-    max-width: 180px;
+    width: 200px;
+    height: 30px;
     background-color: red;
     border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
 }
 
 .Button .page-link {
+    height: 100%;
+    display: block;
+    text-align: center;
     text-decoration: none;
     color: white;
     font-size: 18px;
+    line-height: 30px;
 }
 
 .Button:hover {

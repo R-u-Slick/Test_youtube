@@ -11,26 +11,16 @@ class VideoList extends React.Component {
 
   static propTypes = {
     videos: PropTypes.array.isRequired,
-    cbSelectedVideo: PropTypes.func.isRequired,
+    cbSelectedVideo: PropTypes.func.isRequired, //callback that pass info about selected video
   };
-
-  keySearch = (video) => {    
-    if (video.id.videoId) {
-      return video.id.videoId
-    }
-    else {
-      return video.id.playlistId
-    }
-  }
 
   render() {
     const renderedVideos =  this.props.videos.map((video) => {
-      return <VideoListItem key={this.keySearch(video)} video={video} cbSelectedVideo={this.props.cbSelectedVideo} />
+      return <VideoListItem key={video.id.videoId} video={video} cbSelectedVideo={this.props.cbSelectedVideo} />
     });
     
     return <div className='VideoList'>{renderedVideos}</div>;
   }
-
 }
 
 export default VideoList;

@@ -9,16 +9,17 @@ class VideoPlayer extends React.Component {
   }
 
   static propTypes = {
+    videoSrc: PropTypes.string,
     videoId: PropTypes.string,
   };
 
   render() {
-    const videoSrc = `https://www.youtube.com/embed/${this.props.videoId}`;
+
     return (
       <div className='VideoPlayer'>
         <div className='title'>Current video:</div>
         <div className="player">
-          <iframe src={videoSrc} allowFullScreen title="Video player" />
+          <iframe src={this.props.videoSrc+this.props.videoId} allowFullScreen title="Video player" />
         </div>
       </div>
     );

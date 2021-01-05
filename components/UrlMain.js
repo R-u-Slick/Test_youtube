@@ -2,24 +2,22 @@
 import Input from './Input'
 import VideoPlayer from './VideoPlayer'
 import Button from './Button'
+import {apiUrlParse} from '../API/youtube'
 
 import './UrlMain.css';
 
 class UrlMain extends React.Component {
-
   state = {
     invalidInput: false,
     selectedVideoId: null
   }
 
-  inputSubmit = (termFromSearchBar) => {
-    const url = termFromSearchBar;
-    var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    console.log(match)
-    if (match && match[2].length == 11) {
-      this.setState({invalidInput: false})
-      this.setState({selectedVideoId: match[2]});
+  inputSubmit = (inputUrl) => {
+    let result = apiUrlParse(inputUrl);
+    if (result) {
+      this.setState({invalidInput: false});
+      this.setState({selectedVideoId: result});
+      console.log('selected video ID: '+result);
     } 
     else {
       this.setState({invalidInput: true});
@@ -46,7 +44,7 @@ class UrlMain extends React.Component {
             <div className="video-player">
               {
                 (Boolean(this.state.selectedVideoId)&&!this.state.invalidInput)&&
-                <VideoPlayer videoId={this.state.selectedVideoId}/>
+                <VideoPlayer videoSrc="https://www.youtube.com/embed/" videoId={this.state.selectedVideoId}/>
               }  
             </div>
           </div>

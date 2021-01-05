@@ -12,16 +12,6 @@ class Button extends React.Component {
     name: PropTypes.string.isRequired,
   };
 
-  inputRef = null;
-
-  setInputRef = (ref) => {
-    this.inputRef = ref;
-  }
-
-  inputSubmit = event =>{
-    this.props.cbInputSubmit(this.inputRef.value);
-  }
-
   render() {
 
     return (

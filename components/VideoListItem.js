@@ -10,7 +10,7 @@ class VideoListItem extends React.Component {
 
   static propTypes = {
     video: PropTypes.object.isRequired,
-    cbSelectedVideo: PropTypes.func.isRequired,
+    cbSelectedVideo: PropTypes.func.isRequired,  //callback that pass info about selected video
   };
 
   videoClicked = (EO) => {
@@ -18,16 +18,15 @@ class VideoListItem extends React.Component {
     this.props.cbSelectedVideo(this.props.video);
   }
 
-
   render() {
-    return (
-    <div onClick={this.videoClicked} className='VideoListItem'>
-      <img className='image' src={this.props.video.snippet.thumbnails.medium.url} alt={this.props.video.snippet.description}/>
-      <div className='content'>
-          <div className='header '>{this.props.video.snippet.title}</div>
-      </div>
-    </div>
-    )
+      return (
+        <div onClick={this.videoClicked} className='VideoListItem'>
+          <img className='image' src={this.props.video.snippet.thumbnails.medium.url} alt={this.props.video.snippet.description}/>
+          <div className='content'>
+              <div className='header '>{this.props.video.snippet.title}</div>
+          </div>
+        </div>
+      )
   }
 
 }

@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import Input from './Input'
-import youtube from '../API/youtube';
+import {apiSearch} from '../API/youtube'
 import VideoPlayer from './VideoPlayer'
 import VideoList from './VideoList'
 import Button from './Button'
@@ -14,20 +14,20 @@ class SearchMain extends React.Component {
     selectedVideo: null
   }
 
-  inputSubmit = async (termFromSearchBar) => {
-    const response = await youtube.get('/search', {
-        params: {
-            q: termFromSearchBar
-        }
-    })
+  inputSubmit = async (inputKeywords) => {
+    try {
+    const response = await apiSearch(inputKeywords);
     this.setState({
       videos: response.data.items
     })
-    console.log("this is response",response);
+    console.log("Response recieved:",response);
+    }
+    catch (err) {
+      alert ('An error has occurred:' + err)
+    }
   }
 
   videoSelected = (video) => {
-    console.log('video'+video)
     this.setState({selectedVideo: video})
   }
 
@@ -47,7 +47,7 @@ class SearchMain extends React.Component {
             <div className="video-player">
               {
                 (Boolean(this.state.selectedVideo))&&
-                <VideoPlayer videoId={this.state.selectedVideo.id.videoId}/>
+                <VideoPlayer videoSrc="https://www.youtube.com/embed/" videoId={this.state.selectedVideo.id.videoId}/>
               }  
             </div>
             <div className="video-list">
